@@ -59,6 +59,14 @@ git push -u origin main
 ```
 
 *(Note: You might need to use `master` instead of `main` depending on your git version, but `main` is standard now).*
+ 
+### **Alternative: Upload via Browser (No Git Installed?)**
+If you don't have Git installed or prefer a visual interface:
+1.  Create the repository as shown in **Step 1**.
+2.  On the repository page, click the **uploading an existing file** link (it's usually in the setup instructions or under the "Add file" dropdown).
+3.  Drag and drop all your project files (index.html, style.css, script.js, etc.) into the box.
+4.  Commit the changes (e.g., "Initial upload").
+5.  Proceed to **Step 3** to activate GitHub Pages.
 
 ### **Step 3: Activate GitHub Pages**
 1.  Go to your repository page on GitHub.

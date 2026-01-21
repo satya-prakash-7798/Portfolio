@@ -88,4 +88,30 @@ document.addEventListener('DOMContentLoaded', () => {
         el.classList.add('hidden'); // Need to add CSS for this
         observer.observe(el);
     });
+
+    // Typing Effect Loop
+    const typingText = document.querySelector('.typing-text');
+    if (typingText) {
+        const startTyping = () => {
+            typingText.classList.remove('is-typing');
+            void typingText.offsetWidth; // Trigger reflow
+            typingText.classList.add('is-typing');
+        };
+
+        // Initial start
+        setTimeout(startTyping, 500); // Small delay on load
+
+        // Loop every 10 seconds
+        setInterval(startTyping, 10000);
+    }
+
+    // Fix for Resume Link navigation if needed
+    const resumeLink = document.querySelector('a[href="resume.html"]');
+    if (resumeLink) {
+        resumeLink.addEventListener('click', (e) => {
+            // Allow default behavior, but we can log or enforce if specific issues arise
+            // e.preventDefault();
+            // window.location.href = 'resume.html';
+        });
+    }
 });
