@@ -1036,3 +1036,13 @@ h4 {
         left: -2.05rem;
     }
 }
+/* Particle Effect Canvas */
+.hero-visual canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
