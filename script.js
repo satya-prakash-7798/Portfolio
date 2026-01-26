@@ -237,4 +237,82 @@ document.addEventListener('DOMContentLoaded', () => {
         init();
         animate();
     }
+
+    // Chatbot Logic
+    const chatToggle = document.querySelector('.chat-toggle');
+    const chatWindow = document.querySelector('.chat-window');
+    const closeChat = document.querySelector('.close-chat');
+    const chatInput = document.getElementById('chat-input');
+    const sendBtn = document.getElementById('send-msg');
+    const chatMessages = document.getElementById('chat-messages');
+
+    if (chatToggle && chatWindow) {
+        // Toggle Chat
+        const toggleChat = () => {
+            chatWindow.classList.toggle('active');
+            const icon = chatToggle.querySelector('i');
+            if (chatWindow.classList.contains('active')) {
+                icon.classList.remove('fa-comment-dots');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-comment-dots');
+            }
+        };
+
+        chatToggle.addEventListener('click', toggleChat);
+        closeChat.addEventListener('click', () => {
+            chatWindow.classList.remove('active');
+            const icon = chatToggle.querySelector('i');
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-comment-dots');
+        });
+
+        // Send Message
+        const sendMessage = () => {
+            const msg = chatInput.value.trim();
+            if (msg === '') return;
+
+            // Add User Message
+            addMessage(msg, 'user');
+            chatInput.value = '';
+
+            // Simulate Bot Response
+            setTimeout(() => {
+                const response = getBotResponse(msg);
+                addMessage(response, 'bot');
+            }, 1000);
+        };
+
+        const addMessage = (text, sender) => {
+            const div = document.createElement('div');
+            div.classList.add('message', sender);
+            div.innerHTML = text; // Changed to innerHTML to support links
+            chatMessages.appendChild(div);
+            // Scroll to bottom
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        };
+
+        const getBotResponse = (input) => {
+            input = input.toLowerCase();
+            if (input.includes('hello') || input.includes('hi')) {
+                return "Hello! I can tell you about Satya's skills, projects, or how to contact him. What would you like to know?";
+            } else if (input.includes('project') || input.includes('work')) {
+                return "Satya has worked on several impressive projects including a POS Application, an E-commerce Platform, and a Recruitment Portal. Check out the 'Work' section for more!";
+            } else if (input.includes('skill') || input.includes('stack')) {
+                return "Satya is a .NET Fullstack Developer proficient in .NET Core, C#, Azure, Angular, and SQL Server.";
+            } else if (input.includes('contact') || input.includes('email') || input.includes('connect') || input.includes('linkedin')) {
+                return "I'd love to connect! You can reach me via:<br><br>👉 <a href='https://www.linkedin.com/in/satya-prakash-sahoo/' target='_blank' style='color: var(--primary-color); text-decoration: underline;'>LinkedIn Profile</a><br>📧 <a href='mailto:satya.prakash.sahooo7798@gmail.com' style='color: var(--primary-color); text-decoration: underline;'>satya.prakash.sahooo7798@gmail.com</a>";
+            } else if (input.includes('resume') || input.includes('cv')) {
+                return "You can view and download the resume by clicking the 'Resume' button in the navigation bar.";
+            } else {
+                return "I'm not sure about that. Try asking about skills, projects, or contact info!";
+            }
+        };
+
+        sendBtn.addEventListener('click', sendMessage);
+        chatInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') sendMessage();
+        });
+    }
 });

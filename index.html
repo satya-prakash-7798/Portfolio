@@ -112,15 +112,16 @@
                 <!-- Project 1 -->
                 <article class="project-card">
                     <div class="project-image">
-                        <div class="placeholder-img color-1"></div>
+                        <img src="assets/images/pos-app.png" alt="Optical Store POS" class="placeholder-img"
+                            style="object-fit: cover;">
                     </div>
                     <div class="project-content">
-                        <h3>Enterprise Dashboard</h3>
-                        <p>A comprehensive analytics dashboard building with .NET Core and Angular for real-time data
-                            visualization.</p>
+                        <h3>Optical Store POS</h3>
+                        <p>Specialized Point of Sale system for optical retailers with prescription management and frame
+                            inventory.</p>
                         <ul class="project-tags">
-                            <li>Angular</li>
                             <li>.NET Core</li>
+                            <li>Azure</li>
                             <li>SQL Server</li>
                         </ul>
                         <div class="project-links">
@@ -134,7 +135,8 @@
                 <!-- Project 2 -->
                 <article class="project-card">
                     <div class="project-image">
-                        <div class="placeholder-img color-2"></div>
+                        <img src="assets/images/ecommerce.png" alt="E-Commerce Platform" class="placeholder-img"
+                            style="object-fit: cover;">
                     </div>
                     <div class="project-content">
                         <h3>E-Commerce Platform</h3>
@@ -155,14 +157,16 @@
                 <!-- Project 3 -->
                 <article class="project-card">
                     <div class="project-image">
-                        <div class="placeholder-img color-3"></div>
+                        <img src="assets/images/recruitment.png" alt="Recruitment Portal" class="placeholder-img"
+                            style="object-fit: cover;">
                     </div>
                     <div class="project-content">
-                        <h3>Inventory Management</h3>
-                        <p>Automated inventory tracking system with RESTful API integration and role-based access
-                            control.</p>
+                        <h3>Recruitment Portal</h3>
+                        <p>Streamlined applicant tracking system with automated resume screening and interview
+                            scheduling.</p>
                         <ul class="project-tags">
-                            <li>.NET Web API</li>
+                            <li>.NET Core</li>
+                            <li>Azure</li>
                             <li>SQL Server</li>
                         </ul>
                         <div class="project-links">
@@ -194,6 +198,28 @@
             </footer>
         </div>
     </section>
+
+    <!-- Chatbot -->
+    <div class="chatbot-container">
+        <div class="chat-window">
+            <div class="chat-header">
+                <h3>Chat Assistant</h3>
+                <button class="close-chat"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="chat-messages" id="chat-messages">
+                <div class="message bot">
+                    Hi there! I'm Satya's virtual assistant. How can I help you today?
+                </div>
+            </div>
+            <div class="chat-input-area">
+                <input type="text" id="chat-input" placeholder="Type a message...">
+                <button id="send-msg"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+        <button class="chat-toggle">
+            <i class="fas fa-comment-dots"></i>
+        </button>
+    </div>
 
     <script src="script.js"></script>
 </body>
